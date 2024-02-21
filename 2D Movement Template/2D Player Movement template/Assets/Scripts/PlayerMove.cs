@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     private int spriteVersion = 0;
     public Sprite[] sprites;
     private SpriteRenderer sr;
-    public int animSpeed;
+    public float animSpeed;
 
     
     void Start()
