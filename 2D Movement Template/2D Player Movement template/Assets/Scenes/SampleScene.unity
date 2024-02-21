@@ -831,7 +831,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 2000104248, guid: 1f2bd82401165714d84b76f8dd6d7525, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -871,6 +871,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  sprites:
+  - {fileID: 2000104248, guid: 1f2bd82401165714d84b76f8dd6d7525, type: 3}
+  - {fileID: -1584192741, guid: 1f2bd82401165714d84b76f8dd6d7525, type: 3}
+  animSpeed: 1
 --- !u!61 &1833301056
 BoxCollider2D:
   m_ObjectHideFlags: 0
