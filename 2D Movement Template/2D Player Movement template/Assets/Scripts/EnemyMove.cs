@@ -10,9 +10,16 @@ public class EnemyMove : MonoBehaviour
     public float speed = 4.0f;
     public GameObject gameEndText;
     private bool playerAlive;
+
+    private int spriteVersion = 0;
+    public Sprite[] sprites;
+    private SpriteRenderer sr;
+    public int animSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating(nameof(changeSprite), this.animSpeed, this.animSpeed);
         playerAlive = true;
         this.gameEndText.SetActive(false);
     }
@@ -30,6 +37,15 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, this.thePlayer.transform.position, this.speed * Time.deltaTime);
+    }
+
+    void changeSprite() {
+        if(spriteVersion == 0) {
+            spriteVersion = 1;
+        } else if(spriteVersion == 1) {
+            spriteVersion = 0;
+        }
+        sr.sprite = sprites[spriteVersion];
     }
 
    
