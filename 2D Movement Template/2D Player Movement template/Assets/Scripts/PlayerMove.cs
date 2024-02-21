@@ -10,9 +10,17 @@ public class PlayerMove : MonoBehaviour
 
     private float vSpeed = 0;//this is the vertical speed of the player, it simulates gravity.
 
+    private int spriteVersion = 0;
+    public Sprite[] sprites;
+    private SpriteRenderer sr;
+    public int animSpeed;
+
 
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        InvokeRepeating(nameof(changeSprite), this.animSpeed, this.animSpeed);
+
         //this checks to see it the player already has a rigidBody, if it does use it, if it doesn't creat a new one.
         if (this.GetComponent<Rigidbody2D>() == null)
         {
@@ -77,5 +85,14 @@ public class PlayerMove : MonoBehaviour
        rb.velocity = new Vector2(x,y).normalized * speed; //same as before, normalized makes it so that its a constant speed.
 
         
+    }
+
+    void changeSprite() {
+        if(spriteVersion == 0) {
+            spriteVersion = 1;
+        } else if(spriteVersion == 1) {
+            spriteVersion = 0;
+        }
+        sr.sprite = sprites[spriteVersion];
     }
 }
